@@ -1,6 +1,9 @@
 # [demo] App Radioweb
 Web player de audio que executa através de um servidor stream ao vivo
 
+## Utilizei
+- viteJS + chakra-ui + host Vercel
+
 ## Proposta
 Executar audio via api ```Audio()``` e fazer manipulação dos seus estados
 
