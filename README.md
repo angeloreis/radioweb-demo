@@ -19,3 +19,11 @@ Executar audio via api ```Audio()``` e fazer manipulação dos seus estados
 Após selecionar qualquer um dos streamings de audio o botão de controle são ativados.
 
 Quando o uma nova estação é selecionada o audio atual é finalizado e novo streaming é carregado, porém, não é executado de forma automática, é necessário clicar no play!
+
+
+## Executando localmente
+Este projeto foi feito em viteJS, portanto siga o passo-a-passo de instalação abaixo
+
+1 - clone o repositório ```git clone https://github.com/angeloreis/radioweb-demo.git ```
+2 - entre no diretório do onde está o projeto clonado e execute ```yarn```, se usar npm, execute ```npm install```
+3 - para rodar aplicação execute no terminal ```yarn dev```, se usar npm, execute ```npm run dev```
