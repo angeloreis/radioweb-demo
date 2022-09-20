@@ -1,4 +1,4 @@
-# radioweb-demo
+# [demo] App Radioweb
 Web player de audio que executa através de um servidor stream ao vivo
 
 ## Proposta
