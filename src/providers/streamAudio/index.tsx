@@ -24,14 +24,6 @@ export const RadioStreamProvider: FC<RadioStreamProps> = ({ children }: RadioStr
     const [loading, setLoading] = useState<boolean>(false)
     const [played, setPlayed] = useState<boolean>(false)
 
-    const isPlaying = () => {
-        return streaming
-            && streaming.currentTime > 0
-            && !streaming.paused
-            && !streaming.ended
-            && streaming.readyState > 2;
-    }
-
     const handleStreaming = (url: string) => {
         setStreaming(new Audio(url))
     }
@@ -46,8 +38,11 @@ export const RadioStreamProvider: FC<RadioStreamProps> = ({ children }: RadioStr
     }
 
     const onStop = () => {
+        if (!played) {
+            alert('Nenhuma transmissão acontecendo!')
+            return
+        }
         streaming.pause()
-        setLoading(false)
         setPlayed(false)
     }
 
@@ -73,9 +68,15 @@ export const RadioStreamProvider: FC<RadioStreamProps> = ({ children }: RadioStr
         streaming.volume = MUTE_VOLUME
     }
 
-    useEffect(() => setLoading(isPlaying()), [onStart])
-    useEffect(() => setStreaming(new Audio('')), [])
+    useEffect(() => {
+        window.addEventListener('loadeddata', () => setLoading(true))
 
+        return () => {
+            window.removeEventListener('loadeddata', () => setLoading(false))
+        }
+    }, [])
+
+    useEffect(() => setStreaming(new Audio('')), [])
 
     return (
         <RadioPlayerContext.Provider
