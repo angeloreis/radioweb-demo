@@ -22,8 +22,11 @@ Quando o uma nova estação é selecionada o audio atual é finalizado e novo st
 
 
 ## Executando localmente
-Este projeto foi feito em viteJS, portanto siga o passo-a-passo de instalação abaixo
+Este projeto foi feito em viteJS, portanto, siga o passo-a-passo de instalação abaixo
 
-1 - clone o repositório ```git clone https://github.com/angeloreis/radioweb-demo.git ```
-2 - entre no diretório do onde está o projeto clonado e execute ```yarn```, se usar npm, execute ```npm install```
-3 - para rodar aplicação execute no terminal ```yarn dev```, se usar npm, execute ```npm run dev```
+- clone o repositório ```git clone https://github.com/angeloreis/radioweb-demo.git```
+- entre no diretório do onde está o projeto clonado e execute ```yarn```, se usar npm, execute ```npm install```
+- para rodar aplicação execute no terminal ```yarn dev```, se usar npm, execute ```npm run dev```
+
+## Onde está o deploy?
+Atualmente o projeto está neste link [clique aqui](https://radioweb-demo.vercel.app/)
