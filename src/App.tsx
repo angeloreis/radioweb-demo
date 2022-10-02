@@ -7,12 +7,12 @@ import { useState } from 'react'
 function App() {
 
   const radioStreaming = {
-    oliberal: 'http://177.105.192.70:9750/liberalfm.mp3',
     rcpa: 'https://ice01.kshost.com.br:8000/live',
     cbnAmazonia: 'https://stream2.cbnamazonia.com.br/cbn-blm',
     rauland: 'https://stm1.srvif.com:6672/stream',
     kissFM: 'https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_KISSFMAAC.aac',
-    comunix: 'https://s08.w3bserver.com/radio/8240/radio.mp3'
+    comunix: 'https://s08.w3bserver.com/radio/8240/radio.mp3',
+    oliberal: 'http://177.105.192.70:9750/liberalfm.mp3'
   }
 
   const [ disableButton, setDisableButton ] = useState(true)
@@ -71,12 +71,12 @@ function App() {
             size={['sm', 'md', 'lg']}
             variant='unstyled'
             onChange={(e) => handleDataStream(e.target.value)}>
-            <option value={radioStreaming.oliberal}>O liberal - Belém</option>
-            <option value={radioStreaming.rcpa}>Rádio Clube do Para - 690</option>
+            <option value={radioStreaming.comunix}>Comunix Web</option>
             <option value={radioStreaming.cbnAmazonia}>CBN - Amazônia</option>
             <option value={radioStreaming.rauland}>Rauland 95.1 FM</option>
             <option value={radioStreaming.kissFM}>Kiss 92.5 FM</option>
-            <option value={radioStreaming.comunix}>Comunix Web</option>
+            <option value={radioStreaming.rcpa}>Rádio Clube do Para - 690</option>
+            <option value={radioStreaming.oliberal}>O liberal - Belém</option>
           </Select>
         </Flex>
 
