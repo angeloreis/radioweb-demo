@@ -3,19 +3,19 @@ import { FaVolumeDown, FaVolumeUp, FaVolumeMute, FaPlay, FaStop } from 'react-ic
 import { useRadioPlayedContext } from './providers/streamAudio'
 import { useState } from 'react'
 
+interface StringMap { [key: string]: string; }
+
+const radioStreaming: StringMap = {
+  rcpa: 'https://ice01.kshost.com.br:8000/live',
+  cbnAmazonia: 'https://stream2.cbnamazonia.com.br/cbn-blm',
+  rauland: 'https://stm1.srvif.com:6672/stream',
+  kissFM: 'https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_KISSFMAAC.aac',
+  comunix: 'https://s08.w3bserver.com/radio/8240/radio.mp3',
+  oliberal: 'http://177.105.192.70:9750/liberalfm.mp3'
+}
 
 function App() {
-
-  const radioStreaming = {
-    rcpa: 'https://ice01.kshost.com.br:8000/live',
-    cbnAmazonia: 'https://stream2.cbnamazonia.com.br/cbn-blm',
-    rauland: 'https://stm1.srvif.com:6672/stream',
-    kissFM: 'https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_KISSFMAAC.aac',
-    comunix: 'https://s08.w3bserver.com/radio/8240/radio.mp3',
-    oliberal: 'http://177.105.192.70:9750/liberalfm.mp3'
-  }
-
-  const [ disableButton, setDisableButton ] = useState(true)
+  const [disableButton, setDisableButton] = useState(true)
 
   const {
     handleStreaming,
@@ -31,7 +31,8 @@ function App() {
 
   const handleDataStream = (radio: string) => {
     played && onStop()
-    handleStreaming(radio)
+    const stream = radioStreaming[radio]
+    handleStreaming(stream)
     setDisableButton(false)
   }
 
@@ -71,12 +72,12 @@ function App() {
             size={['sm', 'md', 'lg']}
             variant='unstyled'
             onChange={(e) => handleDataStream(e.target.value)}>
-            <option value={radioStreaming.comunix}>Comunix Web</option>
-            <option value={radioStreaming.cbnAmazonia}>CBN - Amazônia</option>
-            <option value={radioStreaming.rauland}>Rauland 95.1 FM</option>
-            <option value={radioStreaming.kissFM}>Kiss 92.5 FM</option>
-            <option value={radioStreaming.rcpa}>Rádio Clube do Para - 690</option>
-            <option value={radioStreaming.oliberal}>O liberal - Belém</option>
+            <option value={'comunix'}>Comunix Web</option>
+            <option value={'cbnAmazonia'}>CBN - Amazônia</option>
+            <option value={'rauland'}>Rauland 95.1 FM</option>
+            <option value={'kissFM'}>Kiss 92.5 FM</option>
+            <option value={'rcpa'}>Rádio Clube do Para - 690</option>
+            <option value={'oliberal'}>O liberal - Belém</option>
           </Select>
         </Flex>
 
