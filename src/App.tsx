@@ -6,7 +6,7 @@ import { useState } from 'react'
 interface StringMap { [key: string]: string; }
 
 const radioStreaming: StringMap = {
-  rcpa: 'https://ice01.kshost.com.br:8000/live',
+  rcpa: 'https://carajas2.jmvstream.com/stream',
   cbnAmazonia: 'https://stream2.cbnamazonia.com.br/cbn-blm',
   rauland: 'https://stm1.srvif.com:6672/stream',
   kissFM: 'https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_KISSFMAAC.aac',
