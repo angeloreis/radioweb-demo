@@ -2,6 +2,7 @@ import { Button, Flex, Heading, Select, Text } from '@chakra-ui/react'
 import { FaVolumeDown, FaVolumeUp, FaVolumeMute, FaPlay, FaStop } from 'react-icons/fa'
 import { useRadioPlayedContext } from './providers/streamAudio'
 import { useState } from 'react'
+import { Option } from './components/Select/Option/option.component';
 
 interface StringMap { [key: string]: string; }
 
@@ -11,7 +12,7 @@ const radioStreaming: StringMap = {
   rauland: 'https://stm1.srvif.com:6672/stream',
   kissFM: 'https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_KISSFMAAC.aac',
   comunix: 'https://s08.w3bserver.com/radio/8240/radio.mp3',
-  oliberal: 'http://177.105.192.70:9750/liberalfm.mp3'
+  oliberal: 'blob:https://www.radios.com.br/b06d6c53-237b-4a23-abd6-e355129ef6ac'
 }
 
 function App() {
@@ -68,16 +69,18 @@ function App() {
             color="whiteAlpha.900"
             minW="300px"
             maxW="480px"
-            placeholder='Selecione uma estação de rádio...'
             size={['sm', 'md', 'lg']}
             variant='unstyled'
+            sx={{
+              'background': '#000'
+            }}
             onChange={(e) => handleDataStream(e.target.value)}>
-            <option value={'comunix'}>Comunix Web</option>
-            <option value={'cbnAmazonia'}>CBN - Amazônia</option>
-            <option value={'rauland'}>Rauland 95.1 FM</option>
-            <option value={'kissFM'}>Kiss 92.5 FM</option>
-            <option value={'rcpa'}>Rádio Clube do Para - 690</option>
-            <option value={'oliberal'}>O liberal - Belém</option>
+            <Option value='none' description='Selecione uma estação de rádio...' />            
+            <Option value='comunix' description='Comunix Web' />
+            <Option value='cbnAmazonia' description='CBN - Amazônia' />
+            <Option value='rauland' description='Rauland 95.1 FM' />
+            <Option value='kissFM' description='Kiss 92.5 FM' />
+            <Option value='rcpa' description='Rádio Clube do Para - 106.9 FM' />
           </Select>
         </Flex>
 
